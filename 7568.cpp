@@ -2,22 +2,22 @@
 #include <vector>
 using namespace std;
 
-bool operator<(pair<int, int> &p1, pair<int, int> &p2) {
-	return p1.first < p2.first && p1.second < p2.second;
-}
-
 int main()
 {
 	int n;
 	cin >> n;
 	vector<pair<int, int>> person(n);
-	for (int i = 0; i < n; i++) cin >> person[i].first >> person[i].second;
 	for (int i = 0; i < n; i++) {
-		int cnt = 1;
+		cin >> person[i].first >> person[i].second;
+	}
+	for (int i = 0; i < n; i++) {
+		int cnt = 0;
 		for (int j = 0; j < n; j++) {
 			if (i == j) continue;
-			if (person[i] < person[j]) cnt += 1;
+			if (person[i].first < person[j].first && person[i].second < person[j].second)
+				cnt += 1;
 		}
-		cout << cnt << " ";
+		cout << cnt + 1 << " ";
 	}
+	return 0;
 }
