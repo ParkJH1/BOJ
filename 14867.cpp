@@ -1,30 +1,75 @@
 #include <iostream>
 #include <vector>
+#include <queue>
+#include <set>
 #include <algorithm>
 using namespace std;
 int main()
 {
-	int n, d, k, c;
-	cin >> n >> d >> k >> c;
-	vector<int> v(n);
-	vector<int> cnt(d + 1);
-	for (int i = 0; i < n; i++) cin >> v[i];
-	int s = 0, e = k - 1;
-	int answer = 0, nowanswer = 0;
-	for (int i = s; i <= e; i++) {
-		if (cnt[v[i]] == 0) nowanswer += 1;
-		cnt[v[i]] += 1;
+	int a, b, c, d;
+	cin >> a >> b >> c >> d;
+	queue<pair<pair<int, int>, int>> q;
+	set<pair<int, int>> check;
+	q.push({ {0,0},0 });
+	check.insert({ 0,0 });
+
+	while (!q.empty()) {
+		auto qf = q.front();
+		auto now = qf.first;
+		q.pop();
+
+		if (now.first == c && now.second == d) {
+			cout << qf.second;
+			return 0;
+		}
+		
+		pair<int, int> next;
+		// Fill a
+		next.first = a;
+		next.second = now.second;
+		//auto ret = check.insert(next);
+		//if(ret.second) q.push({ next,qf.second + 1 });
+		if (check.insert(next).second) q.push({ next,qf.second + 1 });
+
+		// Fill b
+		next.first = now.first;
+		next.second = b;
+		if (check.insert(next).second) q.push({ next,qf.second + 1 });
+
+		// Empty a
+		next.first = 0;
+		next.second = now.second;
+		if (check.insert(next).second) q.push({ next,qf.second + 1 });
+
+		// Empty b
+		next.first = now.first;
+		next.second = 0;
+		if (check.insert(next).second) q.push({ next,qf.second + 1 });
+
+		// M(x,y)
+		if (now.second + now.first > b) {
+			next.first = now.first - (b - now.second);
+			next.second = b;
+		}
+		else {
+			next.first = 0;
+			next.second = now.second + now.first;
+		}
+		if (check.insert(next).second) q.push({ next,qf.second + 1 });
+
+		// M(y,x)
+		if (now.first + now.second > a) {
+			next.first = a;
+			next.second = now.second - (a - now.first);
+		}
+		else {
+			next.first = now.first + now.second;
+			next.second = 0;
+		}
+		if (check.insert(next).second) q.push({ next,qf.second + 1 });
 	}
-	answer = max(answer, nowanswer + ((cnt[c] == 0) ? 1 : 0));
-	while (s < n) {
-		cnt[v[s]] -= 1;
-		if (cnt[v[s]] == 0) nowanswer -= 1;
-		s += 1;
-		e = (e + 1) % n;
-		if (cnt[v[e]] == 0) nowanswer += 1;
-		cnt[v[e]] += 1;
-		answer = max(answer, nowanswer + ((cnt[c] == 0) ? 1 : 0));
-	}
-	cout << answer;
+
+	cout << -1;
+
 	return 0;
 }
