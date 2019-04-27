@@ -21,5 +21,6 @@
 | [10804](https://github.com/JungHyeonPark/BOJ/blob/master/10804.cpp) |
 | [10845](https://github.com/JungHyeonPark/BOJ/blob/master/10845.cpp) |
 | [11866](https://github.com/JungHyeonPark/BOJ/blob/master/11866.cpp) |
+| [14867](https://github.com/JungHyeonPark/BOJ/blob/master/14867.cpp) |
 | [15975](https://github.com/JungHyeonPark/BOJ/blob/master/15975.cpp) |
 | [xxxx](https://github.com/JungHyeonPark/BOJ/blob/master/xxxx.cpp) |
