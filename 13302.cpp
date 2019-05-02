@@ -19,12 +19,7 @@ using ll=long long;
 int main()
 {
     ios::sync_with_stdio(false);
-	cin.tie(0);
-    freopen("/Users/pjh/Documents/Algorithm/Algorithm/INPUT.TXT","r",stdin);
-    freopen("/Users/pjh/Documents/Algorithm/Algorithm/OUTPUT.TXT","w",stdout);
-    //freopen("INPUT.TXT","r",stdin);
-    //freopen("OUTPUT.TXT","w",stdout);
-
+    cin.tie(0);
     int n,m;
     cin>>n>>m;
     vector<vector<int>> dp(n+1,vector<int>(50,INF));
