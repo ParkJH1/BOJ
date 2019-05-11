@@ -18,6 +18,7 @@
 | [10158](https://github.com/JungHyeonPark/BOJ/blob/master/10158.cpp) |
 | [10797](https://github.com/JungHyeonPark/BOJ/blob/master/10797.cpp) |
 | [10800](https://github.com/JungHyeonPark/BOJ/blob/master/10800.cpp) |
+| [10802](https://github.com/JungHyeonPark/BOJ/blob/master/10802.cpp) |
 | [10804](https://github.com/JungHyeonPark/BOJ/blob/master/10804.cpp) |
 | [10845](https://github.com/JungHyeonPark/BOJ/blob/master/10845.cpp) |
 | [11866](https://github.com/JungHyeonPark/BOJ/blob/master/11866.cpp) |
